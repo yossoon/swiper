@@ -101,7 +101,9 @@ export default function (event) {
     return;
   }
   swiper.allowClick = false;
-  e.preventDefault();
+  if (e.cancelable) {
+    e.preventDefault();
+  }
   if (params.touchMoveStopPropagation && !params.nested) {
     e.stopPropagation();
   }
